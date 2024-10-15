@@ -1,70 +1,330 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head><base href="https://"></head><body>
+
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descarga Gratis: Recetario de Proteínas para Runners</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script> <!-- Referencia al script de validación -->
-</head>
-<body>
+    <title>¡GRATIS! Tu Guía Definitiva de Recetas Proteicas para Runners</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .highlight {
+            color: #f44d14;
+            font-weight: 700;
+        }
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
+        .benefits {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #f44d14;
+        }
+        .benefits h2 {
+            color: #f44d14;
+            margin-top: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f44d14;
+            font-weight: bold;
+        }
+        form {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="email"]:focus {
+            border-color: #f44d14;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #f44d14;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #e63900;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(244, 77, 20, 0.4);
+        }
+        .testimonials {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+        }
+        .testimonials:before {
+            content: '"';
+            font-size: 100px;
+            color: #f44d14;
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+        }
+        .testimonials p {
+            font-style: italic;
+            margin: 15px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .countdown {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #f44d14;
+            margin: 20px 0;
+        }
+        .bonus {
+            background-color: #f44d14;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .bonus h3 {
+            margin-top: 0;
+        }
+        .guarantee {
+            text-align: center;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+        }
+        .terms-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .terms-link {
+            color: #f44d14;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var terms = document.getElementById('terms').checked;
+            
+            if (name == "" || email == "" || !terms) {
+                alert("Por favor, completa todos los campos y acepta los términos y condiciones.");
+                return false;
+            }
+            return true;
+        }
+
+        // Countdown timer
+        function startCountdown() {
+            var countDownDate = new Date().getTime() + 15 * 60 * 1000; // 15 minutes from now
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "¡OFERTA EXPIRADA!";
+                }
+            }, 1000);
+        }
+
+        window.onload = function() {
+            startCountdown();
+            
+            var modal = document.getElementById("termsModal");
+            var link = document.getElementById("termsLink");
+            var span = document.getElementsByClassName("close")[0];
+
+            link.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+    </script>
+
+
     <div class="container">
-        <!-- Encabezado -->
-        <h1>Descarga Gratis: Recetario de Proteínas para Runners</h1>
-        <p>Obtén recetas exclusivas para mejorar tu rendimiento y recuperación</p>
+        <h1>¡Desbloquea tu <span class="highlight">Potencial Máximo</span> como Runner!</h1>
+        <p style="text-align: center; font-size: 1.2em;">Descarga <strong>GRATIS</strong> tu guía definitiva de recetas proteicas y transforma tu rendimiento</p>
         
-        <!-- Imagen Principal -->
-        <img src="img.jpg" alt="Recetas de Proteínas para Runners" style="width:100%;height:auto;">
+        <img class="hero-image" src="/a/4f256a3b-6e93-479d-9232-9e54eae61920" alt="Libro de recetas proteicas para runners con imagen de alimentos saludables y una figura corriendo" width="500" height="500">
         
-        <!-- Beneficios -->
-        <ul>
-            <li><i class="icon-check"></i> Recetas fáciles y rápidas</li>
-            <li><i class="icon-check"></i> Optimiza tu nutrición</li>
-            <li><i class="icon-check"></i> Mejora tu rendimiento</li>
-        </ul>
+        <div class="benefits">
+            <h2>Lo que obtendrás:</h2>
+            <ul>
+                <li>Más de 50 recetas proteicas deliciosas y fáciles de preparar</li>
+                <li>Plan nutricional personalizado para antes, durante y después de tus carreras</li>
+                <li>Secretos de atletas de élite para optimizar tu recuperación</li>
+                <li>Guía de suplementación para potenciar tu rendimiento</li>
+                <li>Acceso exclusivo a nuestra comunidad de runners</li>
+            </ul>
+        </div>
+
+        <div class="countdown">
+            <p>Esta oferta expira en: <span id="countdown">¡OFERTA EXPIRADA!</span></p>
+        </div>
         
-        <!-- Formulario HTML -->
-        <form id="descarga-form" action="URL de tu página de agradecimiento en GitHub Pages" method="POST" onsubmit="return validateForm()">
-            <label for="name">Nombre Completo:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required><br><br>
-            <textarea readonly style="width: 100%; height: 200px;">
-                ## Términos y Condiciones
-
-                ### 1. Introducción
-
-                Al completar este formulario, aceptas los siguientes términos y condiciones. Es importante que leas y entiendas estos términos antes de continuar.
-
-                ### 2. Uso de Información Personal
-
-                La información personal que proporciones (nombre, correo electrónico) será utilizada únicamente para enviarte el recetario de proteínas y cualquier actualización relacionada. No compartiremos tu información con terceros sin tu consentimiento.
-
-                ### 3. Derechos de Propiedad
-
-                El contenido del recetario está protegido por derechos de autor y es propiedad exclusiva de NutriRunPro. No está permitido reproducir, distribuir o utilizar el contenido del recetario sin nuestro permiso explícito.
-
-                ### 4. Descargo de Responsabilidad
-
-                El recetario de proteínas tiene fines informativos y no sustituye el consejo médico profesional. Siempre consulta con un profesional de la salud antes de realizar cambios significativos en tu dieta o régimen de ejercicios.
-
-                ### 5. Modificaciones
-
-                Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Te notificaremos cualquier cambio a través del correo electrónico proporcionado.
-            </textarea><br><br>
-            <input type="checkbox" id="terms" name="terms" value="accepted" required>
-            <label for="terms">Acepto los términos y condiciones</label><br><br>
-
-            <!-- Testimonios -->
-            <div class="testimonios">
-                <p>"Gracias a las recetas, mejoré mi tiempo en maratón." - Juan, runner</p>
-                <p>"Fácil de seguir y deliciosas. ¡Lo recomiendo!" - María, atleta</p>
+        <form id="descarga-form" action="https://example.com/gracias" method="POST" onsubmit="return validateForm()">
+            <label for="name">Tu Nombre (para personalizar tu guía):</label>
+            <input type="text" id="name" name="name" required="" placeholder="Ej. María Rodríguez">
+            
+            <label for="email">Tu Mejor Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required="" placeholder="tu@email.com">
+            
+            <div class="bonus">
+                <h3>¡BONO ESPECIAL!</h3>
+                <p>Descarga ahora y recibe GRATIS nuestra "Guía de Estiramientos para Prevenir Lesiones"</p>
             </div>
-        
-            <!-- Llamado a la Acción -->
-            <p>¿Listo para llevar tu rendimiento al siguiente nivel? ¡Descarga ahora!</p>
-            <input type="submit" value="Descargar Ahora">
+            
+            <input type="checkbox" id="terms" name="terms" value="accepted" required="">
+            <label for="terms" style="display: inline;">Acepto los <span id="termsLink" class="terms-link">términos y condiciones</span> y recibir información valiosa para mejorar mi rendimiento</label>
+
+            <input type="submit" value="¡SÍ! QUIERO MEJORAR MI RENDIMIENTO AHORA">
         </form>
+
+        <div class="testimonials">
+            <p>"Gracias a estas recetas, bajé mi tiempo de maratón en 15 minutos. ¡Increíble!" - Juan, Maratonista</p>
+            <p>"Nunca pensé que la nutrición pudiera hacer tanta diferencia. Ahora me recupero más rápido y corro mejor." - Ana, Ultra runner</p>
+        </div>
+        
+        <div class="guarantee">
+            <p>Garantía de satisfacción del 100%. Si no estás completamente satisfecho, te devolvemos tu tiempo de descarga. Sin preguntas.</p>
+        </div>
     </div>
-</body>
-</html>
+
+    <div id="termsModal" class="terms-modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2>Términos y Condiciones</h2>
+            <h3>1. Introducción</h3>
+            <p>Al completar este formulario, aceptas los siguientes términos y condiciones. Es importante que leas y entiendas estos términos antes de continuar.</p>
+            <h3>2. Uso de Información Personal</h3>
+            <p>La información personal que proporciones (nombre, correo electrónico) será utilizada únicamente para enviarte el recetario de proteínas y cualquier actualización relacionada. No compartiremos tu información con terceros sin tu consentimiento.</p>
+            <h3>3. Derechos de Propiedad</h3>
+            <p>El contenido del recetario está protegido por derechos de autor y es propiedad exclusiva de NutriRunPro. No está permitido reproducir, distribuir o utilizar el contenido del recetario sin nuestro permiso explícito.</p>
+            <h3>4. Descargo de Responsabilidad</h3>
+            <p>El recetario de proteínas tiene fines informativos y no sustituye el consejo médico profesional. Siempre consulta con un profesional de la salud antes de realizar cambios significativos en tu dieta o régimen de ejercicios.</p>
+            <h3>5. Modificaciones</h3>
+            <p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Te notificaremos cualquier cambio a través del correo electrónico proporcionado.</p>
+        </div>
+    </div>
+
+
+</body></html>
